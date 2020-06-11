@@ -1,0 +1,8 @@
+CREATE TABLE `cards` (`concept` VARCHAR(50) NOT NULL, 
+ `definition` TEXT NOT NULL,
+ Primary key (`concept`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+If you attempt to use type TEXT for `term` you'll get error:
+BLOB/TEXT column 'term' used in key specification without a key length
+A primary key string length has to be known.
