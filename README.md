@@ -1,4 +1,5 @@
-Flash cards application
+Flash cards application. See pictures folders for details.
 
-![Image of front card]
-(https://github.com/Swan-Toma/study-cards/readme-resources/front.png)
+client: React, JavaScript, HTML/CSS
+server: Node.js/express
+
