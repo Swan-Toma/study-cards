@@ -8,5 +8,5 @@ The card will flip to the definition through a click. A 3D
 transformation flip occurs after clicking the card.
 
 # Tech Stack
-client: React, JavaScript, HTML/CSS
+client: React, JavaScript, HTML/CSS<br />
 server: Node.js/express
