@@ -24,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # configuration
-/config/database-config.js
+/server/config/database-config.js
