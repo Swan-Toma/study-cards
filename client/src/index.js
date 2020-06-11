@@ -78,7 +78,7 @@ class Slide extends React.Component {
 							</div>
 							{/* Back of study card */}
 							<div className="slide card__face card__face--back">
-								<p>back</p>
+								<p>{cards[index]['definition']}</p>
 							</div>
 						</div>
 						<div><button className="next" onClick={this.next}>&#8250;</button></div>

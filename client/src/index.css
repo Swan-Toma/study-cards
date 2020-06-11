@@ -20,6 +20,7 @@
 	display: table-cell; 
 	vertical-align: middle;
 	color: black;
+	font-size: 25px;
 }
 
 #counter {

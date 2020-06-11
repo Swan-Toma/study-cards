@@ -41,7 +41,7 @@ function closeConnection(con) {
 
 const retreiveAllCards = new Promise((resolve, reject) => {
 	getConnection.then((con) => {
-		con.query('SELECT * FROM card', (err, rows) => {
+		con.query('SELECT * FROM cards', (err, rows) => {
 			if (err) {
 				reject("Query result failed for retrieving all cards.");
 			}
