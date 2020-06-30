@@ -8,7 +8,7 @@ const DatabaseConfig = require('./config/database-config');
 
 
 // Retrieve MySQL connection
-const getConnection = () => {
+function getConnection() {
 	return new Promise((resolve, reject) => {
 		const con = mysql.createConnection({
 			host: DatabaseConfig.host,
