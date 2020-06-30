@@ -9,4 +9,4 @@ transformation flip occurs after clicking the card.
 
 # Tech Stack
 client: React, JavaScript, HTML/CSS<br />
-server: Node.js/express
+server: Node.js/Express

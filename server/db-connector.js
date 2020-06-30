@@ -1,5 +1,5 @@
 /*
- *  Connect to MySQL database.
+ *  Support database connection and database queries.
  */
 
 
@@ -8,23 +8,25 @@ const DatabaseConfig = require('./config/database-config');
 
 
 // Retrieve MySQL connection
-const getConnection = new Promise((resolve, reject) => {
-	const con = mysql.createConnection({
-		host: DatabaseConfig.host,
-		user: DatabaseConfig.user,
-		password: DatabaseConfig.password,
-		database: DatabaseConfig.database
-	});
+const getConnection = () => {
+	return new Promise((resolve, reject) => {
+		const con = mysql.createConnection({
+			host: DatabaseConfig.host,
+			user: DatabaseConfig.user,
+			password: DatabaseConfig.password,
+			database: DatabaseConfig.database
+		});
 
-	con.connect((err) => {
-		if (err) {
-			reject("Error: " + err.message);
-		} else {
-			console.log("Database connected! Listening on port " + con.config.port + "...")
-			resolve(con);
-		}
+		con.connect((err) => {
+			if (err) {
+				reject("Error: " + err.message);
+			} else {
+				console.log("Database connected! Listening on port " + con.config.port + "...")
+				resolve(con);
+			}
+		});
 	});
-});
+}
 
 
 // Terminate MySQL connection
@@ -39,20 +41,41 @@ function closeConnection(con) {
 }
 
 
-const retreiveAllCards = new Promise((resolve, reject) => {
-	getConnection.then((con) => {
-		con.query('SELECT * FROM cards', (err, rows) => {
-			if (err) {
-				reject("Query result failed for retrieving all cards.");
-			}
-			resolve(rows);
+// Retrieve all cards from database
+const retreiveAllCards = () => {
+	return new Promise((resolve, reject) => {
+		getConnection().then((con) => {
+			con.query('SELECT * FROM cards', (err, rows) => {
+				if (err) {
+					reject("Query result failed for retrieving all cards.");
+				}
+				resolve(rows);
+			});
+			closeConnection(con);
+		}, (error) => {
+			reject("Database connection error.");
 		});
-		closeConnection(con);
-	}, (error) => {
-		reject("Database connection error.");
 	});
-});
+}
 
+
+// Retrieve all categories from database 
+const retreiveAllCategories = () => {
+	return new Promise((resolve, reject) => {
+		getConnection().then((con) => {
+			con.query('SELECT * FROM categories', (err, rows) => {
+				if (err) {
+					reject("Query result failed for retrieving all cards.");
+				}
+				resolve(rows);
+			});
+			closeConnection(con);
+		}, (error) => {
+			reject("Database connection error.");
+		});
+	});
+}
 
 // Expose function(s)
 module.exports.retreiveAllCards = retreiveAllCards;
+module.exports.retreiveAllCategories = retreiveAllCategories;

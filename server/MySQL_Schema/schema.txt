@@ -1,8 +1,20 @@
 CREATE TABLE `cards` (`concept` VARCHAR(50) NOT NULL, 
  `definition` TEXT NOT NULL,
+ `category` TEXT NOT NULL,
  Primary key (`concept`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `categories` (`category` VARCHAR(50) NOT NULL, 
+ Primary key (`category`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 If you attempt to use type TEXT for `term` you'll get error:
 BLOB/TEXT column 'term' used in key specification without a key length
 A primary key string length has to be known.
+
+
+INSERT INTO cards (concept, definition, category) VALUES("A", "definition of A", "CatA");
+INSERT INTO cards (concept, definition, category) VALUES("A2", "definition of A2", "CatA");
+INSERT INTO cards (concept, definition, category) VALUES("B", "definition of B", "CatB");
+INSERT INTO cards (concept, definition, category) VALUES("B2", "definition of B2", "CatB");
+INSERT INTO categories (category) VALUES("CatA"), ("CatB");

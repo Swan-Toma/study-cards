@@ -1,3 +1,7 @@
+body{
+	font-family: Arial;
+}
+
 .container {
 	text-align: center;
 	width: 100%;
@@ -8,23 +12,23 @@
 	width: 600px;
 	height: 400px;
 	font-size: 50px;
-	border-radius: 3%;
+	border-radius: 1%;
 	box-shadow: antiquewhite;
 	display: table;
 	padding: 0px;
-	box-shadow: 0px 0px 5px 1px #7f7f7f;
-	background-color: rgb(255, 235, 181);
+	box-shadow: 0px 0px 5px 1px #818181;
+	background-color: rgb(255, 255, 225);
 }
 
 .slide p {
 	display: table-cell; 
 	vertical-align: middle;
-	color: black;
+	color: rgb(54, 54, 54);
 	font-size: 25px;
 }
 
 #counter {
-	color: black;
+	color: rgb(255, 255, 255);
 	font-size: 20px;
 }
 
@@ -32,8 +36,8 @@
 /* CSS for prev and next buttons */
 
 button {
-	background-color: rgb(0, 92, 15);
-	color: white;
+	background-color: rgb(87, 138, 172);
+	color: rgb(255, 255, 255);
 	border-radius: 50%;
 	height: 50px;
 	width: 50px;
@@ -41,11 +45,12 @@ button {
 	text-decoration: none;
 	margin: 0;
 	padding: 0;
+	border: 0;
 }
 
 button:hover {
 	background-color: rgb(0, 0, 0);
-	color: rgb(21, 255, 0);
+	color: rgb(255, 255, 255);
 }
 
 .next {
@@ -87,4 +92,13 @@ button:hover {
 
   .card__face--back {
 	transform: rotateY( 180deg );
+}
+
+/* Drop down selection */
+select {
+	width: 200px;
+	margin-bottom: 25px;
+	margin-left: 100px;
+	background-color: rgb(255, 255, 225);
+	padding: 5px;
 }
