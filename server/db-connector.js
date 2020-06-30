@@ -42,7 +42,7 @@ function closeConnection(con) {
 
 
 // Retrieve all cards from database
-const retreiveAllCards = () => {
+function retreiveAllCards() {
 	return new Promise((resolve, reject) => {
 		getConnection().then((con) => {
 			con.query('SELECT * FROM cards', (err, rows) => {
@@ -60,7 +60,7 @@ const retreiveAllCards = () => {
 
 
 // Retrieve all categories from database 
-const retreiveAllCategories = () => {
+function retreiveAllCategories() {
 	return new Promise((resolve, reject) => {
 		getConnection().then((con) => {
 			con.query('SELECT * FROM categories', (err, rows) => {
